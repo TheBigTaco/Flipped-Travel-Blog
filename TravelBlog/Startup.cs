@@ -23,7 +23,7 @@ namespace TravelBlog
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddEntityFramework()
-				.AddDbContext<ToDoDbContext>(options =>
+				.AddDbContext<TravelBlogDbContext>(options =>
 					options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 		}
 
