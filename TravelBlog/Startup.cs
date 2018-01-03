@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.Extensions.Logging;
 using TravelBlog.Models;
 
 
@@ -22,19 +23,27 @@ namespace TravelBlog
 		}
 		public void ConfigureServices(IServiceCollection services)
 		{
+            services.AddMvc();
 			services.AddEntityFramework()
 				.AddDbContext<TravelBlogDbContext>(options =>
 					options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 		}
 
 
-		public void Configure(IApplicationBuilder app)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
+			loggerFactory.AddConsole();
 
-
-			app.Run(async (context) =>
+			if (env.IsDevelopment())
 			{
-				await context.Response.WriteAsync("Hello World!");
+				app.UseDeveloperExceptionPage();
+			}
+
+			app.UseMvc(routes =>
+			{
+				routes.MapRoute(
+					name: "default",
+					template: "{controller=Home}/{action=Index}/{id?}");
 			});
 		}
 	}

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<TravelBlog.Models.Location>
+
+@{
+    ViewData["Title"] = "TravelBlog - Locations";
+    Layout = "_Layout";
+}
+
+<p>@Html.ActionLink("Add New Location", "Create")</p>
+
+<ul>
+@foreach (var Location in Model) 
+{
+    <li>@Html.DisplayFor(modelLocation => Location.Name): @Html.DisplayFor(modelLocation => Location.Description) |
+	@Html.ActionLink("Edit", "edit", new { id = Location.Id }) | 
+	@Html.ActionLink("Details", "details", new { id = Location.Id }) | 
+	@Html.ActionLink("Delete", "delete", new { id = Location.Id })</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Return to Home", "index", "Home")</p>
