@@ -70,7 +70,6 @@ namespace TravelBlog.Migrations
                 {
                     b.HasOne("TravelBlog.Models.Location", "Location")
                         .WithMany("Experiences")
-                        .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -78,7 +77,6 @@ namespace TravelBlog.Migrations
                 {
                     b.HasOne("TravelBlog.Models.Experience", "Experience")
                         .WithMany("People")
-                        .HasForeignKey("ExperienceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<TravelBlog.Models.Experience>
+
+@{
+    ViewData["Title"] = "TravelBlog - Experiences";
+    Layout = "_Layout";
+}
+
+<p>@Html.ActionLink("Add New Experience", "Create")</p>
+
+<ul>
+@foreach (var Experience in Model) 
+{
+    <li>@Html.DisplayFor(modelExperience => Experience.Title): @Html.DisplayFor(modelExperience => Experience.Description) |
+	@Html.ActionLink("Edit", "edit", new { id = Experience.Id }) | 
+	@Html.ActionLink("Details", "details", new { id = Experience.Id }) | 
+	@Html.ActionLink("Delete", "delete", new { id = Experience.Id })</li>
+}
+</ul>
+
+<p>@Html.ActionLink("Return to Home", "index", "Home")</p>

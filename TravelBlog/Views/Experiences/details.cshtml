@@ -1,0 +1,13 @@
+﻿@model TravelBlog.Models.Experience
+@{
+    ViewData["Title"] = "TravelBlog - Detail";
+    Layout = "_Layout";
+}
+
+<h2>Experience Details</h2>
+<hr/>
+
+<p>@Html.DisplayNameFor(model => model.Title): @Html.DisplayFor(model => model.Title)</p>
+<p>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</p>
+
+<p>@Html.ActionLink("Edit", "edit", new { id = Model.Id}) | @Html.ActionLink("Back to Experiences", "Index")</p>

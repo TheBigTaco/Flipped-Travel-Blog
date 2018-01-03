@@ -35,12 +35,6 @@ namespace TravelBlog.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_experiences", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_experiences_locations_LocationId",
-                        column: x => x.LocationId,
-                        principalTable: "locations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -56,12 +50,6 @@ namespace TravelBlog.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_people", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_people_experiences_ExperienceId",
-                        column: x => x.ExperienceId,
-                        principalTable: "experiences",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

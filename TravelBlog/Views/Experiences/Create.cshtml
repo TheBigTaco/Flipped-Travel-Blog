@@ -1,0 +1,27 @@
+﻿@model TravelBlog.Models.Experience
+
+@{
+    ViewData["Title"] = "New Experience";
+    Layout = "_Layout";
+}
+
+<h2> Enter Experience Information </h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+	    @Html.LabelFor(model => model.Title)
+	    @Html.TextBoxFor(model => model.Title)
+	</p>
+
+    <p>
+	    @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+    </p>
+
+    @Html.LabelFor(model => model.LocationId)
+    @Html.DropDownList("LocationsId")
+
+    <input type="submit" value="Submit Experience"/>
+}
+<p>@Html.ActionLink("Return to Experiences", "Index")</p>
