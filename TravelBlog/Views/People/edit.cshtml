@@ -1,0 +1,28 @@
+﻿@model TravelBlog.Models.Person
+
+@{
+    ViewData["Title"] = "Edit Person";
+    Layout = "_Layout";
+}
+
+<h2>Edit</h2>
+<hr />
+<h4>Edit this location: @Html.DisplayFor(model => model.Name)</h4>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+
+    @Html.LabelFor(model => model.LocationId)
+    @Html.DropDownList("LocationsId")
+
+    <input type="submit" value="Submit Changes"/>
+}
+<p>@Html.ActionLink("Back to List", "Index")</p>
