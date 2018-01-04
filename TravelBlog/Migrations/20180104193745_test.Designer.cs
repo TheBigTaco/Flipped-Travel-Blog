@@ -8,8 +8,8 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogDbContext))]
-    [Migration("20180104192500_otherTest")]
-    partial class otherTest
+    [Migration("20180104193745_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,7 +70,7 @@ namespace TravelBlog.Migrations
                 {
                     b.HasOne("TravelBlog.Models.Location", "Location")
                         .WithMany("Experiences")
-                        .HasForeignKey("LocationId")
+                        //.HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
@@ -78,7 +78,7 @@ namespace TravelBlog.Migrations
                 {
                     b.HasOne("TravelBlog.Models.Experience", "Experience")
                         .WithMany("People")
-                        .HasForeignKey("ExperienceId")
+                        //.HasForeignKey("ExperienceId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
         }

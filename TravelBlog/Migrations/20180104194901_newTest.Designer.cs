@@ -8,8 +8,8 @@ using TravelBlog.Models;
 namespace TravelBlog.Migrations
 {
     [DbContext(typeof(TravelBlogDbContext))]
-    [Migration("20180104192911_addTest")]
-    partial class addTest
+    [Migration("20180104194901_newTest")]
+    partial class newTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -64,6 +64,20 @@ namespace TravelBlog.Migrations
                     b.HasIndex("ExperienceId");
 
                     b.ToTable("people");
+                });
+
+            modelBuilder.Entity("TravelBlog.Models.Test", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tests");
                 });
 
             modelBuilder.Entity("TravelBlog.Models.Experience", b =>
