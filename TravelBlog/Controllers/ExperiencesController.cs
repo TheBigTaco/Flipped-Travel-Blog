@@ -44,7 +44,6 @@ namespace TravelBlog.Controllers
             var thisExperience = db.Experiences.FirstOrDefault(experiences => experiences.Id == id);
             ViewBag.LocationsId = new SelectList(db.Locations, "Id", "Name");
             return View(thisExperience);
-            
         }
 
         [HttpPost]

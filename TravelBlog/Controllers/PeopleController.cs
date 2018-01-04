@@ -41,10 +41,9 @@ namespace TravelBlog.Controllers
 
         public IActionResult Edit(int id)
         {
-            var thisPerson = db.People.FirstOrDefault(Persons => Persons.Id == id);
-            ViewBag.ExperiencesId = new SelectList(db.Experiences, "Id", "Name");
+            var thisPerson = db.People.FirstOrDefault(persons => persons.Id == id);
+            ViewBag.ExperiencesId = new SelectList(db.Experiences, "Id", "Title");
             return View(thisPerson);
-            
         }
 
         [HttpPost]
